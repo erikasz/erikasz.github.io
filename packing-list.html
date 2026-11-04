@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warehouse Packing List Automation – Erika Szili</title>
+<meta name="description" content="Case study: a mobile Power App and Power Automate flow for warehouse packing lists, built on standard Microsoft 365 licences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+<div class="wrap">
+<a href="index.html#work" class="logo" style="font-family:'IBM Plex Sans',sans-serif;font-weight:600">← All work</a>
+<a href="index.html" class="logo">erika<span>.</span>szili</a>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+<section class="cs-hero">
+<div class="eyebrow">Case study · Process automation</div>
+<h1>Warehouse Packing List Automation</h1>
+<p class="lead">From shop-floor data capture on a phone to an automatic notification for customer service — and structured packaging data for EPR reporting.</p>
+<div class="facts">
+<div><div class="k">Role</div><div class="v">Design, build &amp; rollout</div></div>
+<div><div class="k">Tools</div><div class="v">Power Apps · Power Automate · SharePoint</div></div>
+<div><div class="k">Licensing</div><div class="v">Standard Microsoft 365, no premium</div></div>
+<div><div class="k">Status</div><div class="v">User testing, Sep 2026</div></div>
+</div>
+</section>
+
+<section class="two">
+<div>
+<h2 class="label">01 · The problem</h2>
+<p class="big">Packing lists were recorded in a generic Microsoft Forms form. It had no real structure for boxes and pallets, customer service had to be informed separately, and the data could not be reused for packaging-material reporting.</p>
+</div>
+<div>
+<h2 class="label">02 · The solution</h2>
+<p class="big">A mobile Power App guides warehouse staff through basic data, box or pallet details and photos. On submit, a Power Automate flow builds HTML tables from the SharePoint lists and emails the full packing list, photos attached, to customer service and the warehouse.</p>
+</div>
+</section>
+
+<figure class="diagram">
+<img src="assets/packing-list-flow.png" alt="Two-step flow: mobile capture in Power Apps, then notification in Power Automate">
+<figcaption>Architecture — Step 1 mobile capture, Step 2 event-driven notification</figcaption>
+</figure>
+</div>
+
+<section class="screens">
+<div class="wrap">
+<h2 class="label">03 · The app in use</h2>
+<p class="big">Four screens, built for quick use at the packing station.</p>
+<div class="grid4">
+<div><b>Basic data</b><span>Customer, packer, date, packing type</span></div>
+<div><b>Boxes</b><span>Standard types plus custom sizes</span></div>
+<div><b>Pallets</b><span>Up to 10 pallets, optional boxes on top</span></div>
+<div><b>Photos</b><span>Attachments and required-field checks</span></div>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<section class="results">
+<h2 class="label">04 · Results</h2>
+<div class="stats">
+<div class="stat"><div class="num">0</div><div>manual emails to customer service</div></div>
+<div class="stat"><div class="num">EPR</div><div>packaging data ready for MOHU reporting</div></div>
+</div>
+</section>
+
+<section class="decisions">
+<div>
+<h2 class="label">05 · Key decisions</h2>
+<div class="big">Kept simple enough to run on standard licences.</div>
+</div>
+<ul>
+<li><b>Parent–child SharePoint lists.</b> <span>One packing list, with box and pallet items linked by lookup.</span></li>
+<li><b>Status field as the trigger.</b> <span>The flow fires only once all child items are saved.</span></li>
+<li><b>HTML tables via Select + Join.</b> <span>Readable emails without premium connectors.</span></li>
+<li><b>No Dataverse.</b> <span>Standard connectors only, so no extra licensing cost.</span></li>
+</ul>
+</section>
+</div>
+</main>
+
+<a class="next" href="index.html#work">
+<div class="wrap">
+<div><div class="eyebrow">Back to</div><div class="t">Selected work</div></div>
+<div class="t">→</div>
+</div>
+</a>
+
+</body>
+</html>
