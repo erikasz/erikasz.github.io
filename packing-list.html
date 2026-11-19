@@ -24,7 +24,7 @@
 <section class="cs-hero">
 <div class="eyebrow">Case study · Process automation</div>
 <h1>Warehouse Packing List Automation</h1>
-<p class="lead">A phone app for the warehouse, an automatic email for customer service, and structured data for the packaging-material report (EPR / MOHU). In daily use since October 2026.</p>
+<p class="lead">A phone app for the warehouse, an automatic email for customer service, and structured data for the packaging records needed for Hungarian EPR reporting (MOHU). In daily use since October 2026.</p>
 <div class="facts">
 <div><div class="k">Role</div><div class="v">Design, build &amp; rollout</div></div>
 <div><div class="k">Tools</div><div class="v">Power Apps · Power Automate · SharePoint · Excel</div></div>
@@ -40,7 +40,7 @@
 </div>
 <div>
 <h2 class="label">02 · The solution</h2>
-<p class="big">A mobile Power App guides warehouse staff through basic data, box or pallet details and photos. Article numbers are filled in by scanning the barcode with the phone camera. On submit, the data goes into three linked SharePoint lists, and a Power Automate flow emails the full packing list, photos attached, to customer service and the warehouse. An Excel report reads the same lists for the MOHU packaging log.</p>
+<p class="big">A mobile Power App guides warehouse staff through basic data about the shipment package: box or pallet details and photos. Article numbers are filled in by scanning the barcode with the phone camera within the app. On submit, the data goes into three linked SharePoint lists, and a Power Automate flow emails the full packing list, photos attached, to customer service and the warehouse. An Excel report reads the same lists for the MOHU packaging log.</p>
 </div>
 </section>
 
@@ -70,8 +70,8 @@
 <p class="big">When all items are saved, the status of the packing list changes and the flow starts. It builds HTML tables (boxes, or pallets and the boxes on them), adds the photos as attachments and sends the email to customer service and the warehouse. Nobody has to write it by hand.</p>
 </div>
 <div>
-<h2 class="label">04 · After the submit: MOHU report</h2>
-<p class="big">An Excel file reads the three SharePoint lists with Power Query and joins every box and pallet row to its customer, date, packer and packing type. One refresh gives ready input for the packaging-material log.</p>
+<h2 class="label">04 · After the submit: EPR report</h2>
+<p class="big">An Excel file reads the three SharePoint lists with Power Query and joins every box and pallet row to its customer, date, packer and packing type. One refresh gives ready input for the packaging-material records used in EPR (Extended Producer Responsibility) reporting to MOHU. who runs the EPR system.</p>
 </div>
 </section>
 
