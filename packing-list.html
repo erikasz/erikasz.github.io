@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Warehouse Packing List Automation – Erika Szili</title>
-<meta name="description" content="Case study: a mobile Power App and Power Automate flow for warehouse packing lists, built on standard Microsoft 365 licences.">
+<meta name="description" content="Case study: a mobile Power App, a Power Automate flow and an Excel report for warehouse packing lists, in daily use since October 2026, built on standard Microsoft 365 licences.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,23 +24,23 @@
 <section class="cs-hero">
 <div class="eyebrow">Case study · Process automation</div>
 <h1>Warehouse Packing List Automation</h1>
-<p class="lead">From shop-floor data capture on a phone to an automatic notification for customer service — and structured packaging data for EPR reporting.</p>
+<p class="lead">A phone app for the warehouse, an automatic email for customer service, and structured data for the packaging-material report (EPR / MOHU). In daily use since October 2026.</p>
 <div class="facts">
 <div><div class="k">Role</div><div class="v">Design, build &amp; rollout</div></div>
-<div><div class="k">Tools</div><div class="v">Power Apps · Power Automate · SharePoint</div></div>
+<div><div class="k">Tools</div><div class="v">Power Apps · Power Automate · SharePoint · Excel</div></div>
 <div><div class="k">Licensing</div><div class="v">Standard Microsoft 365, no premium</div></div>
-<div><div class="k">Status</div><div class="v">User testing, Sep 2026</div></div>
+<div><div class="k">Status</div><div class="v">Live since October 2026</div></div>
 </div>
 </section>
 
 <section class="two">
 <div>
 <h2 class="label">01 · The problem</h2>
-<p class="big">Packing lists were recorded in a generic Microsoft Forms form. It had no real structure for boxes and pallets, customer service had to be informed separately, and the data could not be reused for packaging-material reporting.</p>
+<p class="big">Packing lists were recorded in a generic Microsoft Forms form. It had no real structure for boxes and pallets, customer service had to be informed separately, and the data could not be reused for the packaging-material report.</p>
 </div>
 <div>
 <h2 class="label">02 · The solution</h2>
-<p class="big">A mobile Power App guides warehouse staff through basic data, box or pallet details and photos. On submit, a Power Automate flow builds HTML tables from the SharePoint lists and emails the full packing list, photos attached, to customer service and the warehouse.</p>
+<p class="big">A mobile Power App guides warehouse staff through basic data, box or pallet details and photos. Article numbers are filled in by scanning the barcode with the phone camera. On submit, the data goes into three linked SharePoint lists, and a Power Automate flow emails the full packing list, photos attached, to customer service and the warehouse. An Excel report reads the same lists for the MOHU packaging log.</p>
 </div>
 </section>
 
@@ -56,30 +56,44 @@
 <p class="big">Four screens, built for quick use at the packing station.</p>
 <div class="grid4">
 <div><img src="assets/app-1-basic.png" alt="Basic data screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Basic data</b><span>Customer, packer, date, packing type</span></div>
-<div><img src="assets/app-2-boxes.png" alt="Boxes screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Boxes</b><span>Standard types plus custom sizes</span></div>
+<div><img src="assets/app-2-boxes.png" alt="Boxes screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Boxes</b><span>Quantity, weight and article number, by barcode scan or typed</span></div>
 <div><img src="assets/app-3-pallets.png" alt="Pallets screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Pallets</b><span>Up to 10 pallets, optional boxes on top</span></div>
-<div><img src="assets/app-4-photos.png" alt="Photo upload screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Photos</b><span>Attachments and required-field checks</span></div>
+<div><img src="assets/app-4-photos.png" alt="Photo upload screen of the packing list app" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Photos</b><span>Attachments, then the checks before submit</span></div>
 </div>
 </div>
 </section>
 
 <div class="wrap">
+<section class="two" style="padding-top:72px">
+<div>
+<h2 class="label">04 · After the submit: email</h2>
+<p class="big">When all items are saved, the status of the packing list changes and the flow starts. It builds HTML tables (boxes, or pallets and the boxes on them), adds the photos as attachments and sends the email to customer service and the warehouse. Nobody has to write it by hand.</p>
+</div>
+<div>
+<h2 class="label">04 · After the submit: MOHU report</h2>
+<p class="big">An Excel file reads the three SharePoint lists with Power Query and joins every box and pallet row to its customer, date, packer and packing type. One refresh gives ready input for the packaging-material log.</p>
+</div>
+</section>
+
 <section class="results">
-<h2 class="label">04 · Results</h2>
+<h2 class="label">05 · Results</h2>
 <div class="stats">
 <div class="stat"><div class="num">0</div><div>manual emails to customer service</div></div>
-<div class="stat"><div class="num">EPR</div><div>packaging data ready for MOHU reporting</div></div>
+<div class="stat"><div class="num">MOHU</div><div>packaging data ready, refreshed from SharePoint</div></div>
+<div class="stat"><div class="num">Oct 2026</div><div>in daily use in the warehouse</div></div>
 </div>
 </section>
 
 <section class="decisions">
 <div>
-<h2 class="label">05 · Key decisions</h2>
+<h2 class="label">06 · Key decisions</h2>
 <div class="big">Kept simple enough to run on standard licences.</div>
 </div>
 <ul>
 <li><b>Parent–child SharePoint lists.</b> <span>One packing list, with box and pallet items linked by lookup.</span></li>
 <li><b>Status field as the trigger.</b> <span>The flow fires only once all child items are saved.</span></li>
+<li><b>Checks before submit.</b> <span>Where a quantity is given, the weight is required too, and the other way round. Incomplete data does not get through.</span></li>
+<li><b>Barcode scan for article numbers.</b> <span>The quantity mark at the end of the code (like Q80) is cut off automatically, only the clean article number stays.</span></li>
 <li><b>HTML tables via Select + Join.</b> <span>Readable emails without premium connectors.</span></li>
 <li><b>No Dataverse.</b> <span>Standard connectors only, so no extra licensing cost.</span></li>
 </ul>
