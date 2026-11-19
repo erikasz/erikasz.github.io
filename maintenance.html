@@ -24,7 +24,7 @@
 <section class="cs-hero">
 <div class="eyebrow">Case study · Process automation</div>
 <h1>Usage-Based Preventive Machine Maintenance</h1>
-<p class="lead">Maintenance driven by real machine run-hours: a weekly check against the plan, a Planner task with the exact manual chapter, and a closed loop that restarts the cycle. In pilot operation since April 2026.</p>
+<p class="lead">I built two Power Automate flows that check the run-hours of every machine against its maintenance plan each week. When a maintenance is due, the technician gets a Planner task with the exact manual chapter. In pilot operation since April 2026.</p>
 <div class="facts">
 <div><div class="k">Role</div><div class="v">Design, build &amp; data preparation</div></div>
 <div><div class="k">Tools</div><div class="v">Power Automate · SQL Server · SharePoint · Planner</div></div>
@@ -40,7 +40,7 @@
 </div>
 <div>
 <h2 class="label">02 · The solution</h2>
-<p class="big">A SharePoint list holds the maintenance plan of every machine: the task, the interval in run-hours and the manual chapter. Every Monday a Power Automate flow reads the run-hours from SQL Server and creates a Planner task for each maintenance that is due. The task carries the exact manual chapter. When the technician completes it, a second flow saves the run-hours and the date, and the cycle starts again.</p>
+<p class="big">I set up a SharePoint list with the maintenance plan of every machine: the task, the interval in run-hours and the manual chapter. Every Monday a Power Automate flow reads the run-hours from SQL Server and creates a Planner task for each maintenance that is due, with the exact manual chapter attached. When the technician completes it, a second flow saves the run-hours and the date, and the cycle starts again.</p>
 </div>
 </section>
 
