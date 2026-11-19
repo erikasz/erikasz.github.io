@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usage-Based Preventive Maintenance – Erika Szili</title>
+<meta name="description" content="Case study: two Power Automate flows that create maintenance tasks from real machine run-hours, with the exact manual chapter attached, in pilot operation since April 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+<div class="wrap">
+<a href="index.html#work" class="logo" style="font-family:'IBM Plex Sans',sans-serif;font-weight:600">← All work</a>
+<a href="index.html" class="logo">erika<span>.</span>szili</a>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+<section class="cs-hero">
+<div class="eyebrow">Case study · Process automation</div>
+<h1>Usage-Based Preventive Maintenance</h1>
+<p class="lead">Maintenance driven by real machine run-hours: a weekly check against the plan, a Planner task with the exact manual chapter, and a closed loop that restarts the cycle. In pilot operation since April 2026.</p>
+<div class="facts">
+<div><div class="k">Role</div><div class="v">Design, build &amp; data preparation</div></div>
+<div><div class="k">Tools</div><div class="v">Power Automate · SQL Server · SharePoint · Planner</div></div>
+<div><div class="k">Data</div><div class="v">Live run-hours from the machine-usage database</div></div>
+<div><div class="k">Status</div><div class="v">Pilot since April 2026</div></div>
+</div>
+</section>
+
+<section class="two">
+<div>
+<h2 class="label">01 · The problem</h2>
+<p class="big">Maintenance plans lived partly in Excel and partly in the ERP. They were hard to maintain and had to be edited again every year, and technicians worked from paper maintenance books on the shop floor.</p>
+</div>
+<div>
+<h2 class="label">02 · The solution</h2>
+<p class="big">A SharePoint list holds the maintenance plan of every machine: the task, the interval in run-hours and the manual chapter. Every Monday a Power Automate flow reads the run-hours from SQL Server and creates a Planner task for each maintenance that is due. The task carries the exact manual chapter. When the technician completes it, a second flow saves the run-hours and the date, and the cycle starts again.</p>
+</div>
+</section>
+
+<figure class="diagram">
+<img src="assets/maintenance-flow.png" alt="Two flows: a weekly scheduled check that creates Planner tasks, and a closing flow that records the completed maintenance">
+<figcaption>Architecture — Flow 1 weekly check, Flow 2 closing phase</figcaption>
+</figure>
+</div>
+
+<section class="screens">
+<div class="wrap">
+<h2 class="label">03 · In practice</h2>
+<p class="big">One plan list, one task per maintenance.</p>
+<div class="grid4">
+<div style="grid-column:1/-1"><img src="assets/app-plan.png" alt="SharePoint maintenance plan list with machine, task, interval in run-hours and manual chapter" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Maintenance plan</b><span>One row per task: machine, place, interval in run-hours, manual chapter and a link to the instruction</span></div>
+<div><img src="assets/app-card.png" alt="Planner card with the manual chapter attached" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Planner card</b><span>Due date, status and the manual chapter on the card</span></div>
+<div><img src="assets/app-task.png" alt="Planner task details" loading="lazy" style="width:100%;display:block;border-radius:6px;margin-bottom:12px"><b>Task details</b><span>Machine, task, interval and the manual link in the notes</span></div>
+</div>
+</div>
+</section>
+
+<div class="wrap">
+<section class="two" style="padding-top:72px">
+<div>
+<h2 class="label">04 · Flow 1: the weekly check</h2>
+<p class="big">Every Monday at 06:00 a stored procedure returns the run-hours of each machine since its last maintenance. For every plan row the flow checks the status list. If a task is already open, nothing happens, so there are no duplicates. If not, and the run-hours have reached the interval in the plan, it creates a Planner task with the manual chapter attached.</p>
+</div>
+<div>
+<h2 class="label">04 · Flow 2: closing the loop</h2>
+<p class="big">When the technician ticks the task done in Planner, the second flow reads the current run-hours, finds the matching row in the status list by task ID and saves the run-hours and the date. The next interval is counted from the real completion, not from the plan.</p>
+</div>
+</section>
+
+<section class="results">
+<h2 class="label">05 · Results so far</h2>
+<div class="stats">
+<div class="stat"><div class="num">Weekly</div><div>automatic check against real run-hours</div></div>
+<div class="stat"><div class="num">1</div><div>manual chapter attached to every task</div></div>
+<div class="stat"><div class="num">10</div><div>machines set up, in 3 types: punch-laser combination, fibre laser, press brakes</div></div>
+</div>
+</section>
+
+<section class="decisions">
+<div>
+<h2 class="label">06 · Key decisions</h2>
+<div class="big">Maintenance follows machine use, not the calendar.</div>
+</div>
+<ul>
+<li><b>Run-hours from the source.</b> <span>One stored procedure reads the usage data; the flows never copy it by hand.</span></li>
+<li><b>Plan and status in separate lists.</b> <span>The plan changes rarely, the status changes with every maintenance.</span></li>
+<li><b>No duplicate tasks.</b> <span>The flow skips a plan row while its task is still open.</span></li>
+<li><b>Manuals split into chapters.</b> <span>Each plan row links to the exact manual pages, so the technician does not search a whole PDF.</span></li>
+<li><b>Planner for the shop floor.</b> <span>Tasks, due dates and completion in a tool the technicians can use on a tablet.</span></li>
+</ul>
+</section>
+</div>
+</main>
+
+<a class="next" href="index.html#work">
+<div class="wrap">
+<div><div class="eyebrow">Back to</div><div class="t">Selected work</div></div>
+<div class="t">→</div>
+</div>
+</a>
+
+</body>
+</html>
