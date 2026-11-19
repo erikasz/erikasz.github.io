@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manufacturing Downtime Analysis – Erika Szili</title>
-<meta name="description" content="Case study: a one-page Power BI dashboard on production-line downtime, built on a Maven Analytics sample dataset. Where the downtime comes from and what to fix first. I built a one-page Power BI dashboard that shows what keeps a production line from running at full speed, who and what is behind the downtime, and what to fix first. I used a public dataset, because my company's own data is confidential.">
+<meta name="description" content="Case study: a one-page Power BI dashboard on production-line downtime, built on a Maven Analytics sample dataset. Where the downtime comes from and what to fix first.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
 <section class="cs-hero">
 <div class="eyebrow">Case study · Power BI</div>
 <h1>Manufacturing Downtime Analysis</h1>
-<p class="lead">I built a one-page Power BI dashboard that shows what keeps a production line from running at full speed, who and what is behind the downtime, and what to fix first. Built on a public sample dataset.</p>
+<p class="lead">I built a one-page Power BI dashboard for a soda bottling line: what keeps it from running at full speed, who and what is behind the downtime, and what to fix first. I used a public dataset, because my company's own data is confidential.</p>
 <div class="facts">
 <div><div class="k">Role</div><div class="v">Analysis &amp; dashboard design</div></div>
 <div><div class="k">Tools</div><div class="v">Power BI · Excel</div></div>
-<div><div class="k">Data</div><div class="v">Public dataset from Maven Analytics</div></div>
+<div><div class="k">Data</div><div class="v">Public dataset from Maven Analytics, soda bottling line</div></div>
 <div><div class="k">Type</div><div class="v">Portfolio project</div></div>
 </div>
 </section>
@@ -36,7 +36,7 @@
 <section class="two">
 <div>
 <h2 class="label">01 · The question</h2>
-<p class="big">The line runs at 64% efficiency. Where does the downtime come from, and what should the plant manager fix first?</p>
+<p class="big">What is the current line efficiency? Are any operators underperforming? What are the leading factors of downtime, and do some operators struggle with particular types of error?</p>
 </div>
 <div>
 <h2 class="label">02 · The approach</h2>
@@ -64,10 +64,9 @@
 <div class="big">Start with the few causes that explain most of the loss.</div>
 </div>
 <ul>
-<li><b>Focus on the top 5 causes.</b> <span>Machine adjustment (332 min), machine failure, inventory shortage, batch change and batch coding error add up to 80% of the downtime. The rest can wait.</span></li>
-<li><b>Train on machine adjustment and batch change.</b> <span>Machine adjustment is the biggest single cause. One operator has the lowest efficiency (61%), mostly because of long batch changes (130 min).</span></li>
-<li><b>Look into OR-600.</b> <span>Its efficiency is far below the other products, so its production issues need a root-cause check.</span></li>
-<li><b>Fix CO-600 supply and reliability.</b> <span>It has the most downtime that no operator causes: machine failures and inventory shortages.</span></li>
+<li><b>Support Mac to raise overall efficiency.</b> <span>Mac has the lowest efficiency (61%) and the main root cause is batch change (130 min). I recommend training and mentoring, and a review of the process, so that Mac's workflow is not disproportionately harder than the others'.</span></li>
+<li><b>Go after the leading downtime factors.</b> <span>Machine adjustment, machine failure and inventory shortage are the biggest causes. I recommend regular machine maintenance, better inventory management (especially for CO-600) and a training programme for the operators on machine adjustment.</span></li>
+<li><b>Look into OR-600.</b> <span>Its efficiency (44%) is far below the other products (62–68%), so its production issues need a root-cause check.</span></li>
 </ul>
 </section>
 </div>
