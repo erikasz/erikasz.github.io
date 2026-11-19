@@ -49,8 +49,18 @@
 <figcaption>The dashboard — sample data from Maven Analytics · <a href="https://mavenshowcase.com/project/23945" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">View it on Maven Showcase →</a></figcaption>
 </figure>
 
+<section class="two" style="padding-top:56px">
+<div>
+<h2 class="label">03 · The data model</h2>
+<p class="big">A small, clean model: two fact tables (line productivity per batch, downtime per batch and factor) and two dimension tables (products, downtime factors), all related one-to-many. Every calculation sits in a separate measures table: line efficiency, total downtime, cumulative downtime and Pareto %, operator error ratio. A sort-order column keeps the Pareto bars in the right order. The dataset is small (38 batches), so the model is simple on purpose. The data covers only 5 days (29 Aug – 3 Sep 2024), so I left out a calendar table and trend charts.</p>
+</div>
+<div>
+<img src="assets/downtime-model.png" alt="Power BI data model with four related tables and a measures table" loading="lazy" style="width:100%;display:block;border-radius:6px;border:1px solid var(--line)">
+</div>
+</section>
+
 <section class="results">
-<h2 class="label">03 · What the data shows</h2>
+<h2 class="label">04 · What the data shows</h2>
 <div class="stats">
 <div class="stat"><div class="num">80%</div><div>of the 1,388 downtime minutes come from just 5 causes</div></div>
 <div class="stat"><div class="num">56%</div><div>of downtime is related to operator errors</div></div>
@@ -60,7 +70,7 @@
 
 <section class="decisions">
 <div>
-<h2 class="label">04 · What I would do first</h2>
+<h2 class="label">05 · What I would do first</h2>
 <div class="big">Start with the few causes that explain most of the loss.</div>
 </div>
 <ul>
